@@ -1,5 +1,3 @@
-// ./app/components/SiteHeader.tsx
-
 // import Remix's link component
 import { Form, Link, useNavigation } from "@remix-run/react";
 

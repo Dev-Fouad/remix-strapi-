@@ -1,5 +1,3 @@
-// ./app/components/ProfileCard.tsx
-
 import { Link } from "@remix-run/react";
 
 // type definitions for Profile response
@@ -40,7 +38,7 @@ const ProfileCard = ({ profile, preview }: { profile: Profile; preview: boolean 
 
               {/* show twitter name if it exists */}
               {profile.twitterUsername && (
-                <a href="https://twitter.com/miracleio" className="twitter link">
+                <a href={`https://twitter.com/${profile.twitterUsername}`} className="twitter link">
                   @{profile.twitterUsername}
                 </a>
               )}

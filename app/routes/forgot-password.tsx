@@ -15,7 +15,7 @@ export const action: ActionFunction = async ({ request }) => {
 
 const ForgotPass = () => {
   const navigation = useNavigation();
-  const data = useActionData<any>();
+  const data = useActionData<typeof action>();
 
   return (
     <section className="site-section profiles-section">
