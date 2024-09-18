@@ -1,5 +1,3 @@
-// ./app/routes/sign-out.tsx
-
 import { ActionFunction, LoaderFunction, redirect } from "@vercel/remix";
 import { logout } from "~/utils/session.server";
 
