@@ -1,4 +1,5 @@
 import { MetaFunction, LinksFunction, json, LoaderFunction } from "@remix-run/node";
+import { Analytics } from '@vercel/analytics/react';
 
 // import compiled styles
 import styles from "./styles/app.css";
@@ -25,9 +26,8 @@ export const loader: LoaderFunction = async ({ request }) => {
   });
 };
 
-export const config = {
-  memory: 1024,
-};
+
+export const config = { runtime: 'edge' };
 
 export function Layout({ children }: { children: React.ReactNode }) {
   
@@ -41,6 +41,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
+      <Analytics />
       <main className="site-main">
       <SiteHeader user={userData?.user} />
       {children}
@@ -51,6 +52,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+
 
 export default function App() {
   return <Outlet />;
