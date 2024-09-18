@@ -1,4 +1,3 @@
-
 const slugify = (str: string | null | undefined) =>
   str ? str
     .toLowerCase()

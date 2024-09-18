@@ -1,17 +1,15 @@
-    // ./tailwind.config.js
-
-    module.exports = {
-      content: [
-        "./app/**/*.{js,ts,jsx,tsx}",
-      ],
-      theme: {
-        extend: {},
-      },
-      corePlugins: {
-        aspectRatio: false,
-      },
-      plugins: [
-        require('@tailwindcss/forms'),
-        require('@tailwindcss/aspect-ratio')
-      ],
-    }
+module.exports = {
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  corePlugins: {
+    aspectRatio: false,
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/aspect-ratio')
+  ],
+}

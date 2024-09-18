@@ -1,5 +1,3 @@
-// ./app/utils/session.server.ts
-
 import { createCookieSessionStorage, redirect } from "@vercel/remix";
 import { LoginResponse } from "./types";
 
