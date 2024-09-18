@@ -1,6 +1,6 @@
 // ./app/routes/sign-out.tsx
 
-import { ActionFunction, LoaderFunction, redirect } from "@remix-run/node";
+import { ActionFunction, LoaderFunction, redirect } from "@vercel/remix";
 import { logout } from "~/utils/session.server";
 
 // action to get the /sign-out request action from the sign out form

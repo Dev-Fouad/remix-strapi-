@@ -1,5 +1,3 @@
-// ./app/models/profiles.server.ts
-
 // import types
 import slugify from "~/utils/slugify"
 import { ErrorResponse, LoginActionData, LoginResponse, Profile, ProfileData, RegisterActionData } from "~/utils/types"

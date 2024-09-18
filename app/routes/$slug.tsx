@@ -1,6 +1,6 @@
 // ./app/routes/$slug.tsx
 
-import { json, LoaderFunction, ActionFunction, redirect } from "@remix-run/node";
+import { json, LoaderFunction, ActionFunction, redirect } from "@vercel/remix";
 import { useLoaderData, useActionData } from "@remix-run/react";
 
 import { useEffect, useState } from "react";

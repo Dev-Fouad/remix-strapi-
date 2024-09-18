@@ -1,4 +1,4 @@
-import { ActionFunction, json } from "@remix-run/node";
+import { ActionFunction, json } from "@vercel/remix";
 import { Form, useActionData, useNavigation } from "@remix-run/react";
 import { sendResetMail } from "../models/profiles.server";
 

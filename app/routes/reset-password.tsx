@@ -1,6 +1,6 @@
 // ./app/routes/reset-password.tsx
 
-import { ActionFunction, json, LoaderFunction, redirect } from "@remix-run/node";
+import { ActionFunction, json, LoaderFunction, redirect } from "@vercel/remix";
 import { Form, useActionData, useLoaderData, useNavigation } from "@remix-run/react";
 import { resetPass } from "../models/profiles.server";
 

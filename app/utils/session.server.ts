@@ -1,6 +1,6 @@
 // ./app/utils/session.server.ts
 
-import { createCookieSessionStorage, redirect } from "@remix-run/node";
+import { createCookieSessionStorage, redirect } from "@vercel/remix";
 import { LoginResponse } from "./types";
 
 // initialize createCookieSession

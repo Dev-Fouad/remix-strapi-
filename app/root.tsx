@@ -1,4 +1,4 @@
-import { MetaFunction, LinksFunction, json, LoaderFunction } from "@remix-run/node";
+import { MetaFunction, LinksFunction, json, LoaderFunction } from "@vercel/remix";
 import { Analytics } from '@vercel/analytics/react';
 
 // import compiled styles
@@ -26,7 +26,12 @@ export const loader: LoaderFunction = async ({ request }) => {
   });
 };
 
-
+import type { HeadersFunction } from '@vercel/remix';
+ 
+export const headers: HeadersFunction = () => ({
+  'Cache-Control': 's-maxage=1, stale-while-revalidate=59',
+});
+ 
 export const config = { runtime: 'edge' };
 
 export function Layout({ children }: { children: React.ReactNode }) {

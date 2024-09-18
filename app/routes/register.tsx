@@ -1,6 +1,6 @@
 // ./app/routes/register.tsx
 
-import { ActionFunction, json } from "@remix-run/node";
+import { ActionFunction, json } from "@vercel/remix";
 import { useActionData } from "@remix-run/react";
 import ProfileForm from "~/components/ProfileForm";
 import { register } from "../models/profiles.server";

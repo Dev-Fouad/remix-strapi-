@@ -6,7 +6,7 @@
 
 import { PassThrough } from "node:stream";
 
-import type { AppLoadContext, EntryContext } from "@remix-run/node";
+import { handleRequest, type AppLoadContext, type EntryContext } from "@vercel/remix";
 import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
@@ -14,30 +14,30 @@ import { renderToPipeableStream } from "react-dom/server";
 
 const ABORT_DELAY = 5_000;
 
-export default function handleRequest(
-  request: Request,
-  responseStatusCode: number,
-  responseHeaders: Headers,
-  remixContext: EntryContext,
-  // This is ignored so we can keep it in the template for visibility.  Feel
-  // free to delete this parameter in your app if you're not using it!
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  loadContext: AppLoadContext
-) {
-  return isbot(request.headers.get("user-agent") || "")
-    ? handleBotRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      )
-    : handleBrowserRequest(
-        request,
-        responseStatusCode,
-        responseHeaders,
-        remixContext
-      );
-}
+// export default function handleRequest(
+//   request: Request,
+//   responseStatusCode: number,
+//   responseHeaders: Headers,
+//   remixContext: EntryContext,
+//   // This is ignored so we can keep it in the template for visibility.  Feel
+//   // free to delete this parameter in your app if you're not using it!
+//   // eslint-disable-next-line @typescript-eslint/no-unused-vars
+//   loadContext: AppLoadContext
+// ) {
+//   return isbot(request.headers.get("user-agent") || "")
+//     ? handleBotRequest(
+//         request,
+//         responseStatusCode,
+//         responseHeaders,
+//         remixContext
+//       )
+//     : handleBrowserRequest(
+//         request,
+//         responseStatusCode,
+//         responseHeaders,
+//         remixContext
+//       );
+// }
 
 function handleBotRequest(
   request: Request,
@@ -137,4 +137,20 @@ function handleBrowserRequest(
 
     setTimeout(abort, ABORT_DELAY);
   });
+}
+
+ 
+export default async function (
+  request: Request,
+  responseStatusCode: number,
+  responseHeaders: Headers,
+  remixContext: EntryContext,
+) {
+  let remixServer = <RemixServer context={remixContext} url={request.url} />;
+  return handleRequest(
+    request,
+    responseStatusCode,
+    responseHeaders,
+    remixServer,
+  );
 }

@@ -1,4 +1,4 @@
-import { ActionFunction, json, redirect } from "@remix-run/node";
+import { ActionFunction, json, redirect } from "@vercel/remix";
 import { useActionData } from "@remix-run/react";
 import ProfileForm from "~/components/ProfileForm";
 import { signIn } from "../models/profiles.server";
