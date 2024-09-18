@@ -24,8 +24,13 @@ export const loader: LoaderFunction = async ({ request }) => {
     userData: await getUserData(request),
   });
 };
-export function Layout({ children }: { children: React.ReactNode }) {
 
+export const config = {
+  memory: 1024,
+};
+
+export function Layout({ children }: { children: React.ReactNode }) {
+  
   const { userData } = useLoaderData() as LoaderData;
   return (
     <html lang="en">
