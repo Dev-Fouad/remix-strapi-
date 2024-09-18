@@ -1,4 +1,3 @@
-// ./app/routes/reset-password.tsx
 
 import { ActionFunction, json, LoaderFunction, redirect } from "@vercel/remix";
 import { Form, useActionData, useLoaderData, useNavigation } from "@remix-run/react";

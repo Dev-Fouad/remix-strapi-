@@ -46,13 +46,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-      <Analytics />
       <main className="site-main">
       <SiteHeader user={userData?.user} />
       {children}
         <ScrollRestoration />
         <Scripts />
       </main>
+      <Analytics />
+
       </body>
     </html>
   );

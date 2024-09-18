@@ -1,5 +1,6 @@
 import { json } from "@vercel/remix";
 import { useLoaderData } from "@remix-run/react";
+import type { MetaFunction } from "@vercel/remix";
 
 // import profile card component
 import ProfileCard from "~/components/ProfileCard";
@@ -12,6 +13,13 @@ type Loaderdata = {
   // this implies that the "profiles type is whatever type getProfiles resolves to"
   profiles: Awaited<ReturnType<typeof getProfiles>>;
 }
+
+export const meta: MetaFunction = () => {
+  return [
+    { title: "New Remix App" },
+    { name: "description", content: "Welcome to Remix!" },
+  ];
+};
 
 // loader for route
 export const loader = async () => {

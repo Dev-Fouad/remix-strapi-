@@ -4,6 +4,10 @@
  * and should modify this configuration to best suit your team's needs.
  */
 
+module.exports = {
+  extends: ["@remix-run/eslint-config", "@remix-run/eslint-config/node"],
+};
+
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
