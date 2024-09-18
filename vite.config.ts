@@ -1,11 +1,14 @@
-import { vitePlugin as remix } from "@remix-run/dev";
-import { installGlobals } from "@remix-run/node";
-import { defineConfig } from "vite";
-import { vercelPreset } from "@vercel/remix/vite";
-import tsconfigPaths from "vite-tsconfig-paths";
+const { vercelPreset } = require('@vercel/remix/preset');
 
-installGlobals();
-
-export default defineConfig({
-  plugins: [remix({ presets: [vercelPreset()] }), tsconfigPaths()],
-});
+/** @type {import('@remix-run/dev').AppConfig} */
+module.exports = {
+  ignoredRouteFiles: ["**/.*"],
+  serverModuleFormat: "cjs",
+  future: {
+    v2_errorBoundary: true,
+    v2_meta: true,
+    v2_normalizeFormMethod: true,
+    v2_routeConvention: true,
+  },
+  presets: [vercelPreset()],
+};
